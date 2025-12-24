@@ -4,7 +4,7 @@
   <a href="https://github.com/xodo2fast4u/poke-aggregator">
     <img src="https://img.shields.io/github/repo-size/xodo2fast4u/poke-aggregator?style=for-the-badge&logo=github&logoColor=white&label=Repo%20Size&color=60a5fa" alt="GitHub Repo Size">
   </a>
-  <a href="https://github.com/xodo2fast4u/poke-aggregator/blob/main/LICENSE">
+  <a href="https://github.com/xodo2fast4u/poke-aggregator/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/xodo2fast4u/poke-aggregator?style=for-the-badge&logo=github&logoColor=white&label=License&color=60a5fa" alt="License">
   </a>
   <a href="https://github.com/xodo2fast4u/poke-aggregator">
