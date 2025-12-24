@@ -82,7 +82,7 @@ function App() {
             these coding tools exist, fans will continue to express their
             creativity. If rights holders find this problematic, the challenge
             lies in the existence of the very programming languages that empower
-            human imagination—a reality that cannot be erased.
+            human imagination a reality that cannot be erased.
           </p>
           <p className="trademark-fineprint">
             PokéAggregator is not affiliated with Nintendo, Creatures Inc., or
