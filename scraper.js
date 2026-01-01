@@ -1,6 +1,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const crypto = require("crypto");
 const { performance } = require("perf_hooks");
 
 const CATEGORIES = [
@@ -25,6 +26,25 @@ const CATEGORIES = [
 ];
 
 const DATA_FILE = "./src/data.json";
+
+// Generate a unique ID from the game URL using SHA256 hash
+function generateUniqueId(url) {
+  return crypto.createHash("sha256").update(url).digest("hex").substring(0, 16);
+}
+
+// Format duration as "X Minute(s), Y Second(s)"
+function formatDuration(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = Math.floor(totalSeconds % 60);
+
+  if (minutes === 0) {
+    return `${seconds} Second(s)`;
+  } else if (seconds === 0) {
+    return `${minutes} Minute(s)`;
+  } else {
+    return `${minutes} Minute(s), ${seconds} Second(s)`;
+  }
+}
 
 const cleanLabel = (text, label) =>
   text
@@ -142,9 +162,8 @@ async function getEeveeExpoDetails(url) {
 async function processCategory(cat, seenUrls) {
   const games = [];
   const pagesToScrape = cat.max || 1;
-  let gameCount = 0;
 
-  console.log(`\n--- Processing Category: ${cat.name} ---`);
+  console.log(`\n--- Processing Category: ${cat.name} (${cat.source}) ---`);
 
   for (let i = 1; i <= pagesToScrape; i++) {
     try {
@@ -194,7 +213,6 @@ async function processCategory(cat, seenUrls) {
             : await getPokeHarborDetails(gameUrl);
 
         seenUrls.add(gameUrl);
-        gameCount++;
 
         const eeveeImage = $(el)
           .find(".articlePreview-image")
@@ -206,7 +224,7 @@ async function processCategory(cat, seenUrls) {
           : "N/A";
 
         games.push({
-          id: Buffer.from(gameUrl).toString("base64").substring(0, 12),
+          id: generateUniqueId(gameUrl),
           title,
           game_url: gameUrl,
           image:
@@ -239,6 +257,8 @@ async function processCategory(cat, seenUrls) {
       break;
     }
   }
+
+  console.log(`  ✓ Found ${games.length} games in ${cat.name} (${cat.source})`);
   return games;
 }
 
@@ -269,8 +289,8 @@ async function startScraper() {
   }
 
   const endTime = performance.now();
-  const duration = (endTime - startTime) / 1000;
-  console.log(`\nScraping completed in ${duration.toFixed(2)} seconds.`);
+  const durationSeconds = (endTime - startTime) / 1000;
+  console.log(`\nScraping completed in: ${formatDuration(durationSeconds)}`);
 }
 
 startScraper();
