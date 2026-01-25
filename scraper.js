@@ -27,12 +27,10 @@ const CATEGORIES = [
 
 const DATA_FILE = "./src/data.json";
 
-// Generate a unique ID from the game URL using SHA256 hash
 function generateUniqueId(url) {
   return crypto.createHash("sha256").update(url).digest("hex").substring(0, 16);
 }
 
-// Format duration as "X Minute(s), Y Second(s)"
 function formatDuration(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = Math.floor(totalSeconds % 60);
@@ -91,8 +89,8 @@ async function getPokeHarborDetails(url) {
       updatedDisplay !== "N/A"
         ? updatedDisplay
         : releasedDisplay !== "N/A"
-        ? "N/A"
-        : metaModified;
+          ? "N/A"
+          : metaModified;
 
     if (status === "Unknown" && version.toLowerCase().includes("demo"))
       status = "Demo";
@@ -276,10 +274,10 @@ async function startScraper() {
     console.log(`\nSorting and Saving ${allGames.length} games...`);
     const sortedData = allGames.sort((a, b) => {
       const dateA = new Date(
-        a.last_updated === "N/A" ? a.initial_release : a.last_updated
+        a.last_updated === "N/A" ? a.initial_release : a.last_updated,
       );
       const dateB = new Date(
-        b.last_updated === "N/A" ? b.initial_release : b.last_updated
+        b.last_updated === "N/A" ? b.initial_release : b.last_updated,
       );
       return dateB - dateA;
     });
