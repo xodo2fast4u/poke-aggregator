@@ -4,6 +4,11 @@ const fs = require("fs");
 const crypto = require("crypto");
 const { performance } = require("perf_hooks");
 
+/*
+ * Categories are defined declaratively to keep scraping logic generic.
+ * This makes it easy to add or remove sources without touching the core scraper flow.
+ * The max field exists to cap pagination and prevent accidental deep crawls.
+ */
 const CATEGORIES = [
   {
     name: "RPGXP",
@@ -27,10 +32,18 @@ const CATEGORIES = [
 
 const DATA_FILE = "./src/data.json";
 
+/*
+ * IDs are derived from URLs instead of the titles to remain stable
+ *  across renames, formatting changes or minor text edits on source sites.
+ */
 function generateUniqueId(url) {
   return crypto.createHash("sha256").update(url).digest("hex").substring(0, 16);
 }
 
+/*
+ * Duration formatting is user facing so this intentionally favors readability
+ * over percision or localization.
+ */
 function formatDuration(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = Math.floor(totalSeconds % 60);
@@ -44,6 +57,7 @@ function formatDuration(totalSeconds) {
   }
 }
 
+// Scraped list items often contain inconsistent spacing, HTML artifacts or training markers
 const cleanLabel = (text, label) =>
   text
     .split(label)[1]
@@ -51,6 +65,10 @@ const cleanLabel = (text, label) =>
     .replace(/\&nbsp;/g, " ")
     .replace(/\*$/, "");
 
+/*
+ * Timeouts are kept low to avoid stalling on slow or dead pages.
+ * Partial data is preferable to blocking entire run
+ */
 async function getPokeHarborDetails(url) {
   try {
     const { data } = await axios.get(url, {
@@ -64,6 +82,10 @@ async function getPokeHarborDetails(url) {
     let releasedDisplay = "N/A";
     let updatedDisplay = "N/A";
 
+    /*
+     * We use meta tags as a fallback because visible dates are always present
+     * or consistently loaded
+     */
     let metaPublished =
       $('meta[property="article:published_time"]')
         .attr("content")
@@ -83,6 +105,10 @@ async function getPokeHarborDetails(url) {
         updatedDisplay = cleanLabel(text, "Updated:");
     });
 
+    /*
+     * We are prioritizing explicit page data while still producing usable dates
+     * when fields are missing
+     */
     const finalReleased =
       releasedDisplay !== "N/A" ? releasedDisplay : metaPublished;
     const finalUpdated =
@@ -92,6 +118,7 @@ async function getPokeHarborDetails(url) {
           ? "N/A"
           : metaModified;
 
+    // Certain pages do not expose demo status
     if (status === "Unknown" && version.toLowerCase().includes("demo"))
       status = "Demo";
 
@@ -102,6 +129,7 @@ async function getPokeHarborDetails(url) {
       status,
     };
   } catch (e) {
+    // We return defaults so that a single bad page does not poison the dataset
     return {
       updated: "N/A",
       released: "N/A",
@@ -256,7 +284,7 @@ async function processCategory(cat, seenUrls) {
     }
   }
 
-  console.log(`  ✓ Found ${games.length} games in ${cat.name} (${cat.source})`);
+  console.log(`Found ${games.length} games in ${cat.name} (${cat.source})`);
   return games;
 }
 
