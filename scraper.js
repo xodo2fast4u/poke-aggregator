@@ -33,8 +33,26 @@ const CATEGORIES = [
 const DATA_FILE = "./src/data.json";
 
 /*
+ * Simple retry with exponential backoff to handle transient network failures.
+ * Max 3 attempts to avoid infinite loops on genuinely dead pages.
+ */
+async function retryRequest(fn, maxRetries = 3) {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      if (attempt === maxRetries) {
+        throw error;
+      }
+      const backoffMs = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
+      await new Promise(resolve => setTimeout(resolve, backoffMs));
+    }
+  }
+}
+
+/*
  * IDs are derived from URLs instead of the titles to remain stable
- *  across renames, formatting changes or minor text edits on source sites.
+ * across renames, formatting changes or minor text edits on source sites.
  */
 function generateUniqueId(url) {
   return crypto.createHash("sha256").update(url).digest("hex").substring(0, 16);
@@ -42,7 +60,7 @@ function generateUniqueId(url) {
 
 /*
  * Duration formatting is user facing so this intentionally favors readability
- * over percision or localization.
+ * over precision or localization.
  */
 function formatDuration(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
@@ -57,7 +75,9 @@ function formatDuration(totalSeconds) {
   }
 }
 
-// Scraped list items often contain inconsistent spacing, HTML artifacts or training markers
+/*
+ * Scraped list items often contain inconsistent spacing, HTML artifacts or trailing markers
+ */
 const cleanLabel = (text, label) =>
   text
     .split(label)[1]
@@ -66,34 +86,23 @@ const cleanLabel = (text, label) =>
     .replace(/\*$/, "");
 
 /*
- * Timeouts are kept low to avoid stalling on slow or dead pages.
- * Partial data is preferable to blocking entire run
+ * Generic detail scraper that works for both PokeHarbor and EeveeExpo.
+ * Each source provides its own selector and fallback strategy.
  */
-async function getPokeHarborDetails(url) {
+async function scrapeGameDetails(url, config) {
   try {
-    const { data } = await axios.get(url, {
-      headers: { "User-Agent": "Mozilla/5.0" },
-      timeout: 5000,
-    });
+    const { data } = await retryRequest(() =>
+      axios.get(url, {
+        headers: { "User-Agent": "Mozilla/5.0" },
+        timeout: 5000,
+      })
+    );
     const $ = cheerio.load(data);
 
     let version = "N/A";
     let status = "Unknown";
     let releasedDisplay = "N/A";
     let updatedDisplay = "N/A";
-
-    /*
-     * We use meta tags as a fallback because visible dates are always present
-     * or consistently loaded
-     */
-    let metaPublished =
-      $('meta[property="article:published_time"]')
-        .attr("content")
-        ?.split("T")[0] || "N/A";
-    let metaModified =
-      $('meta[property="article:modified_time"]')
-        .attr("content")
-        ?.split("T")[0] || "N/A";
 
     $("li").each((i, el) => {
       const text = $(el).text();
@@ -106,75 +115,20 @@ async function getPokeHarborDetails(url) {
     });
 
     /*
-     * We are prioritizing explicit page data while still producing usable dates
-     * when fields are missing
+     * Apply source-specific fallback logic
      */
-    const finalReleased =
-      releasedDisplay !== "N/A" ? releasedDisplay : metaPublished;
-    const finalUpdated =
-      updatedDisplay !== "N/A"
-        ? updatedDisplay
-        : releasedDisplay !== "N/A"
-          ? "N/A"
-          : metaModified;
-
-    // Certain pages do not expose demo status
-    if (status === "Unknown" && version.toLowerCase().includes("demo"))
-      status = "Demo";
-
-    return {
-      updated: finalUpdated,
-      released: finalReleased,
+    const result = config.applyFallbacks($, {
       version,
       status,
-    };
-  } catch (e) {
-    // We return defaults so that a single bad page does not poison the dataset
-    return {
-      updated: "N/A",
-      released: "N/A",
-      version: "N/A",
-      status: "Unknown",
-    };
-  }
-}
-
-async function getEeveeExpoDetails(url) {
-  try {
-    const { data } = await axios.get(url, {
-      headers: { "User-Agent": "Mozilla/5.0" },
-      timeout: 5000,
-    });
-    const $ = cheerio.load(data);
-
-    let version = "N/A";
-    let status = "Unknown";
-    let releasedDisplay = "N/A";
-    let updatedDisplay = "N/A";
-
-    $("li").each((i, el) => {
-      const text = $(el).text();
-      if (text.includes("Version:")) version = cleanLabel(text, "Version:");
-      if (text.includes("Status:")) status = cleanLabel(text, "Status:");
-      if (text.includes("Released:"))
-        releasedDisplay = cleanLabel(text, "Released:");
-      if (text.includes("Updated:"))
-        updatedDisplay = cleanLabel(text, "Updated:");
-    });
-
-    if (status === "Unknown" && $(".label--completed").length > 0)
-      status = "Completed";
-    if (status === "Unknown" && version.toLowerCase().includes("demo"))
-      status = "Demo";
-
-    return {
-      updated: updatedDisplay,
       released: releasedDisplay,
-      version,
-      status,
-      image: $(".bbWrapper img").first().attr("src") || "N/A",
-    };
+      updated: updatedDisplay,
+    });
+
+    return result;
   } catch (e) {
+    /*
+     * We return defaults so that a single bad page does not poison the dataset
+     */
     return {
       updated: "N/A",
       released: "N/A",
@@ -185,93 +139,184 @@ async function getEeveeExpoDetails(url) {
   }
 }
 
+const sourceStrategies = {
+  PokeHarbor: {
+    buildPageUrl: (baseUrl, pageNum) => `${baseUrl}${pageNum}/`,
+
+    getListSelector: () => ".p-wrap",
+
+    extractGameLink: ($, element) => {
+      const titleEl = $(element).find(".entry-title a");
+      return {
+        title: titleEl.text().trim(),
+        href: titleEl.attr("href"),
+      };
+    },
+
+    extractImage: ($, element) => {
+      return (
+        $(element).find(".rb-iwrap img").attr("data-src") ||
+        $(element).find(".rb-iwrap img").attr("src") ||
+        "N/A"
+      );
+    },
+
+    applyFallbacks: ($, details) => {
+      /*
+       * PokeHarbor uses meta tags as fallback when visible dates are missing
+       */
+      const metaPublished =
+        $('meta[property="article:published_time"]')
+          .attr("content")
+          ?.split("T")[0] || "N/A";
+      const metaModified =
+        $('meta[property="article:modified_time"]')
+          .attr("content")
+          ?.split("T")[0] || "N/A";
+
+      const finalReleased =
+        details.released !== "N/A" ? details.released : metaPublished;
+      const finalUpdated =
+        details.updated !== "N/A"
+          ? details.updated
+          : details.released !== "N/A"
+            ? "N/A"
+            : metaModified;
+
+      let status = details.status;
+      if (status === "Unknown" && details.version.toLowerCase().includes("demo")) {
+        status = "Demo";
+      }
+
+      return {
+        updated: finalUpdated,
+        released: finalReleased,
+        version: details.version,
+        status,
+      };
+    },
+  },
+
+  EeveeExpo: {
+    buildPageUrl: (baseUrl, pageNum) =>
+      pageNum === 1 ? baseUrl : `${baseUrl}page-${pageNum}`,
+
+    getListSelector: () => "article.message--articlePreview",
+
+    extractGameLink: ($, element) => {
+      const titleEl = $(element).find(".articlePreview-title a").last();
+      const href = titleEl.attr("href");
+      const fullUrl = href?.startsWith("http")
+        ? href
+        : `https://eeveeexpo.com${href}`;
+
+      return {
+        title: titleEl.text().trim(),
+        href: fullUrl,
+      };
+    },
+
+    extractImage: ($, element, details) => {
+      /*
+       * EeveeExpo has images in two places: background-image CSS or in details
+       */
+      const bgImage = $(element)
+        .find(".articlePreview-image")
+        .css("background-image");
+
+      if (bgImage) {
+        const cleaned = bgImage.replace(/url\(['"]?(.*?)['"]?\)/i, "$1");
+        if (cleaned !== "N/A") return cleaned;
+      }
+
+      return details?.image || "N/A";
+    },
+
+    extractFallbackTimestamp: ($, element) => {
+      return $(element).find("time.u-dt").first().text().trim() || "N/A";
+    },
+
+    applyFallbacks: ($, details) => {
+      let status = details.status;
+
+      if (status === "Unknown" && $(".label--completed").length > 0) {
+        status = "Completed";
+      }
+
+      if (status === "Unknown" && details.version.toLowerCase().includes("demo")) {
+        status = "Demo";
+      }
+
+      return {
+        updated: details.updated,
+        released: details.released,
+        version: details.version,
+        status,
+        image: $(".bbWrapper img").first().attr("src") || "N/A",
+      };
+    },
+  },
+};
+
 async function processCategory(cat, seenUrls) {
   const games = [];
   const pagesToScrape = cat.max || 1;
+  const strategy = sourceStrategies[cat.source];
+
+  if (!strategy) {
+    console.error(`Unknown source: ${cat.source}`);
+    return games;
+  }
 
   console.log(`\n--- Processing Category: ${cat.name} (${cat.source}) ---`);
 
   for (let i = 1; i <= pagesToScrape; i++) {
     try {
-      const targetUrl =
-        cat.source === "EeveeExpo"
-          ? i === 1
-            ? cat.url
-            : `${cat.url}page-${i}`
-          : `${cat.url}${i}/`;
+      const targetUrl = strategy.buildPageUrl(cat.url, i);
       console.log(`[Page ${i}/${pagesToScrape}] Fetching: ${targetUrl}`);
 
-      const { data } = await axios.get(targetUrl, {
-        headers: { "User-Agent": "Mozilla/5.0" },
-        timeout: 10000,
-      });
+      const { data } = await retryRequest(() =>
+        axios.get(targetUrl, {
+          headers: { "User-Agent": "Mozilla/5.0" },
+          timeout: 10000,
+        })
+      );
       const $ = cheerio.load(data);
 
-      const selector =
-        cat.source === "EeveeExpo"
-          ? "article.message--articlePreview"
-          : ".p-wrap";
+      const selector = strategy.getListSelector();
       const elements = $(selector).toArray();
 
       for (const el of elements) {
-        const titleEl =
-          cat.source === "EeveeExpo"
-            ? $(el).find(".articlePreview-title a").last()
-            : $(el).find(".entry-title a");
-
-        const title = titleEl.text().trim();
-        const href = titleEl.attr("href");
+        const { title, href } = strategy.extractGameLink($, el);
         if (!href) continue;
 
-        const gameUrl =
-          cat.source === "EeveeExpo"
-            ? href.startsWith("http")
-              ? href
-              : `https://eeveeexpo.com${href}`
-            : href;
-
+        const gameUrl = href;
         if (seenUrls.has(gameUrl)) continue;
 
         console.log(`  -> Scraping: ${title}`);
-        const details =
-          cat.source === "EeveeExpo"
-            ? await getEeveeExpoDetails(gameUrl)
-            : await getPokeHarborDetails(gameUrl);
-
+        const details = await scrapeGameDetails(gameUrl, strategy);
         seenUrls.add(gameUrl);
 
-        const eeveeImage = $(el)
-          .find(".articlePreview-image")
-          .css("background-image")
-          ? $(el)
-              .find(".articlePreview-image")
-              .css("background-image")
-              .replace(/url\(['"]?(.*?)['"]?\)/i, "$1")
-          : "N/A";
+        let image = "N/A";
+        if (cat.source === "EeveeExpo") {
+          image = strategy.extractImage($, el, details);
+          /*
+           * EeveeExpo can also fall back to timestamp from listing page
+           */
+          if (details.updated === "N/A") {
+            details.updated = strategy.extractFallbackTimestamp($, el);
+          }
+        } else {
+          image = strategy.extractImage($, el);
+        }
 
         games.push({
           id: generateUniqueId(gameUrl),
           title,
           game_url: gameUrl,
-          image:
-            cat.source === "EeveeExpo"
-              ? eeveeImage !== "N/A"
-                ? eeveeImage
-                : details.image
-              : $(el).find(".rb-iwrap img").attr("data-src") ||
-                $(el).find(".rb-iwrap img").attr("src"),
-          last_updated:
-            cat.source === "EeveeExpo"
-              ? details.updated !== "N/A"
-                ? details.updated
-                : $(el).find("time.u-dt").first().text().trim()
-              : details.updated,
-          initial_release:
-            cat.source === "EeveeExpo"
-              ? details.released !== "N/A"
-                ? details.released
-                : "N/A"
-              : details.released,
+          image,
+          last_updated: details.updated,
+          initial_release: details.released,
           version: details.version,
           status: details.status,
           platform: cat.name,
@@ -279,8 +324,12 @@ async function processCategory(cat, seenUrls) {
         });
       }
     } catch (err) {
-      console.error(`  Error: ${err.message}`);
-      break;
+      console.error(`  Error on page ${i}: ${err.message}`);
+      /*
+       * Continue to next page instead of breaking entirely.
+       * Partial data from other pages is still valuable.
+       */
+      continue;
     }
   }
 
