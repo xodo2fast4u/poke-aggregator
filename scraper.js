@@ -45,7 +45,7 @@ async function retryRequest(fn, maxRetries = 3) {
         throw error;
       }
       const backoffMs = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
-      await new Promise(resolve => setTimeout(resolve, backoffMs));
+      await new Promise((resolve) => setTimeout(resolve, backoffMs));
     }
   }
 }
@@ -95,7 +95,7 @@ async function scrapeGameDetails(url, config) {
       axios.get(url, {
         headers: { "User-Agent": "Mozilla/5.0" },
         timeout: 5000,
-      })
+      }),
     );
     const $ = cheerio.load(data);
 
@@ -184,7 +184,10 @@ const sourceStrategies = {
             : metaModified;
 
       let status = details.status;
-      if (status === "Unknown" && details.version.toLowerCase().includes("demo")) {
+      if (
+        status === "Unknown" &&
+        details.version.toLowerCase().includes("demo")
+      ) {
         status = "Demo";
       }
 
@@ -243,7 +246,10 @@ const sourceStrategies = {
         status = "Completed";
       }
 
-      if (status === "Unknown" && details.version.toLowerCase().includes("demo")) {
+      if (
+        status === "Unknown" &&
+        details.version.toLowerCase().includes("demo")
+      ) {
         status = "Demo";
       }
 
@@ -279,7 +285,7 @@ async function processCategory(cat, seenUrls) {
         axios.get(targetUrl, {
           headers: { "User-Agent": "Mozilla/5.0" },
           timeout: 10000,
-        })
+        }),
       );
       const $ = cheerio.load(data);
 
@@ -310,6 +316,7 @@ async function processCategory(cat, seenUrls) {
           image = strategy.extractImage($, el);
         }
 
+        const platformCategory = cat.name;
         games.push({
           id: generateUniqueId(gameUrl),
           title,
@@ -319,7 +326,7 @@ async function processCategory(cat, seenUrls) {
           initial_release: details.released,
           version: details.version,
           status: details.status,
-          platform: cat.name,
+          platform: platformCategory,
           source: cat.source,
         });
       }
@@ -341,6 +348,19 @@ async function startScraper() {
   const startTime = performance.now();
   const allGames = [];
   const seenUrls = new Set();
+
+  console.log("Validating category configuration");
+  for (let i = 0; i < CATEGORIES.length; i++) {
+    const cat = CATEGORIES[i];
+    if (!cat.name || !cat.url || !cat.source || cat.max === undefined) {
+      console.error(
+        `Category at index ${i} is missing required fields: name, url, source, or max`,
+      );
+      process.exit(1);
+    }
+    console.log(`  Category ${i + 1}: ${cat.name} from ${cat.source}`);
+  }
+  console.log("Categories valid. Starting scrape...\n");
 
   for (const cat of CATEGORIES) {
     const catGames = await processCategory(cat, seenUrls);
