@@ -5,19 +5,16 @@
   --bg-light: oklch(0.3 0 264);
   --text: oklch(0.96 0 264);
   --text-muted: oklch(0.76 0 264);
-  --shadow-s: inset 0 1px 3px #ffffff30, 0 1px 2px #00000030,
-    0 2px 3px #00000020;
-  --shadow-m: inset 0 1px 2px #ffffff50, 0 2px 4px #00000030,
-    0 4px 8px #00000015;
-  --shadow-l: inset 0 1px 2px #ffffff70, 0 4px 6px #00000030,
-    0 6px 10px #00000015;
+  --shadow-s: inset 0 1px 3px #ffffff30, 0 1px 2px #00000030, 0 2px 3px #00000020;
+  --shadow-m: inset 0 1px 2px #ffffff50, 0 2px 4px #00000030, 0 4px 8px #00000015;
+  --shadow-l: inset 0 1px 2px #ffffff70, 0 4px 6px #00000030, 0 6px 10px #00000015;
 }
 
 body {
   background-color: var(--bg-dark);
   color: var(--text);
   margin: 0;
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 .App {
@@ -70,7 +67,9 @@ header {
   background: var(--bg);
   border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   box-shadow: var(--shadow-m);
   border: 1px solid var(--bg-light);
   display: flex;
@@ -292,8 +291,12 @@ header {
 }
 
 @media (max-width: 600px) {
-  .logo-text { font-size: 1.8rem; }
-  .logo-icon { font-size: 1.2rem; }
+  .logo-text {
+    font-size: 1.8rem;
+  }
+  .logo-icon {
+    font-size: 1.2rem;
+  }
 }
 
 .dev-credit {

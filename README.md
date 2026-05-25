@@ -14,6 +14,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
   <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel">
@@ -47,7 +48,7 @@
 <ol>
   <li>Clone the repository to your local machine.</li>
   <li>Run <kbd>npm install</kbd> to install dependencies.</li>
-  <li>Run <kbd>node scraper.js</kbd> to execute the latest data fetch.</li>
+  <li>Run <kbd>node scraper.ts</kbd> to execute the latest data fetch.(Takes 30 to 40 minutes to finish)</li>
   <li>Run <kbd>npm start</kbd> to launch the local development server.</li>
   <li>Run <kbd>npm run build</kbd> to generate the production build.</li>
 </ol>
