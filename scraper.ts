@@ -332,6 +332,23 @@ async function startScraper(): Promise<void> {
   const allGames: any[] = [];
   const seenUrls = new Set<string>();
 
+  try {
+    if (fs.existsSync(DATA_FILE)) {
+      const existingData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+      if (Array.isArray(existingData)) {
+        existingData.forEach((game: any) => {
+          if (game.game_url) {
+            seenUrls.add(game.game_url);
+          }
+        });
+        allGames.push(...existingData);
+        console.log(`Loaded ${existingData.length} existing games from ${DATA_FILE}`);
+      }
+    }
+  } catch (error) {
+    console.warn(`Could not load existing data: ${(error as any).message}`);
+  }
+
   console.log('Validating category configuration');
   for (let i = 0; i < CATEGORIES.length; i++) {
     const cat = CATEGORIES[i];
