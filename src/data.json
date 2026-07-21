@@ -1,5 +1,113 @@
 [
   {
+    "id": "b49ef8b334c42467",
+    "title": "Pokemon Fluvio",
+    "game_url": "https://www.pokeharbor.com/2026/07/pokemon-fluvio/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2026/07/Pokemon-Fluvio-280x210.png",
+    "last_updated": "July 10, 2026",
+    "initial_release": "2026-07-14",
+    "version": "0.1.9",
+    "status": "Beta",
+    "platform": "RPGXP",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "6887f1be3c3fa6eb",
+    "title": "Pokémon Resolute Edition",
+    "game_url": "https://eeveeexpo.com/threads/9588/",
+    "image": "https://i.postimg.cc/SRh18J0J/PKMN-RE-TITLE.png",
+    "last_updated": "Jul 6, 2026",
+    "initial_release": "N/A",
+    "version": "N/A",
+    "status": "Completed",
+    "platform": "RPGXP",
+    "source": "EeveeExpo"
+  },
+  {
+    "id": "af6ef899971c9788",
+    "title": "Pokemon Omniversal Emerald",
+    "game_url": "https://www.pokeharbor.com/2026/07/pokemon-omniversal-emerald/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2026/07/Screenshot-2026-07-04-123048-280x210.png",
+    "last_updated": "June 30, 2026",
+    "initial_release": "2026-07-04",
+    "version": "0.3.2.2",
+    "status": "Beta",
+    "platform": "RPGXP",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "cbd1a541b8379ced",
+    "title": "Pokémon Scarlet",
+    "game_url": "https://eeveeexpo.com/threads/9573/",
+    "image": "https://i.imgur.com/MITQF8H.png",
+    "last_updated": "Jun 30, 2026",
+    "initial_release": "N/A",
+    "version": "N/A",
+    "status": "Completed",
+    "platform": "RPGXP",
+    "source": "EeveeExpo"
+  },
+  {
+    "id": "d624a540daeb7fe4",
+    "title": "Pokémon: A Farfetch'd Story 2",
+    "game_url": "https://eeveeexpo.com/a-farfetchd-story-2/",
+    "image": "https://i.ibb.co/NdtLGHJm/bannertop.png",
+    "last_updated": "Jun 19, 2026",
+    "initial_release": "N/A",
+    "version": "N/A",
+    "status": "Completed",
+    "platform": "RPGXP",
+    "source": "EeveeExpo"
+  },
+  {
+    "id": "0f24bbba2be843b1",
+    "title": "Pokemon Crippling Medical Debt Edition",
+    "game_url": "https://www.pokeharbor.com/2026/06/pokemon-crippling-medical-debt-edition/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2026/06/Pokemon-Crippling-Medical-Debt-Edition-280x210.webp",
+    "last_updated": "June 17, 2026",
+    "initial_release": "2026-06-25",
+    "version": "1.1",
+    "status": "Completed",
+    "platform": "RPGXP",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "cd3204483c08b9e4",
+    "title": "Touhou Puppet Play ~ The Adventures of Ayaka",
+    "game_url": "https://eeveeexpo.com/threads/9534/",
+    "image": "https://i.imgur.com/gK1EsUt.png",
+    "last_updated": "Jun 5, 2026",
+    "initial_release": "N/A",
+    "version": "N/A",
+    "status": "Completed",
+    "platform": "RPGXP",
+    "source": "EeveeExpo"
+  },
+  {
+    "id": "36a7ecbb0670d03b",
+    "title": "Pokemon Vestigios de WAH",
+    "game_url": "https://www.pokeharbor.com/2026/06/pokemon-vestigios-de-wah/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2026/06/Pokemon-Vestigios-of-WAH-370x250.webp",
+    "last_updated": "June 3, 2026",
+    "initial_release": "2026-06-07",
+    "version": "1.0",
+    "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "6d4d71c6d8d39db9",
+    "title": "Pokemon Fire of Sky",
+    "game_url": "https://www.pokeharbor.com/2026/06/pokemon-fire-of-sky/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2026/06/Pokemon-Fire-of-Sky-370x250.webp",
+    "last_updated": "June 3, 2026",
+    "initial_release": "2026-06-07",
+    "version": "1.0.3",
+    "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "50db17c80f365be1",
     "title": "Pokemon Unchosen (tactical RPG)",
     "game_url": "https://eeveeexpo.com/threads/9519/",
@@ -504,6 +612,18 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "e126fccaf3f3eaaa",
+    "title": "How to Play Pokemon Infinite Fusion on Android & PC",
+    "game_url": "https://www.pokeharbor.com/2023/07/how-to-play-pokemon-infinite-fusion-on-android-pc/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2023/07/Play-Pokemon-Infinite-Fusion-Title-Screen-280x210.webp",
+    "last_updated": "2025-02-15",
+    "initial_release": "2023-07-18",
+    "version": "N/A",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "3853ea0f14abda8e",
     "title": "Pokemon Wubish White",
     "game_url": "https://www.pokeharbor.com/2025/02/pokemon-wubish-white/",
@@ -511,6 +631,18 @@
     "last_updated": "N/A",
     "initial_release": "February 06, 2025",
     "version": "1.0",
+    "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "559b349e2e5d2e5f",
+    "title": "Pokemon Red & Blue Celebrations",
+    "game_url": "https://www.pokeharbor.com/2024/08/pokemon-red-blue-celebrations/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/08/pokemon-red-blue-celebrations-280x210.jpg",
+    "last_updated": "February 06, 2025",
+    "initial_release": "2024-08-23",
+    "version": "Feb 2025 Version",
     "status": "Completed",
     "platform": "GBA",
     "source": "PokeHarbor"
@@ -564,6 +696,18 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "b4ec611522cfeb6a",
+    "title": "Pokemon Extreme Yellow",
+    "game_url": "https://www.pokeharbor.com/2024/10/pokemon-extreme-yellow/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/10/Pokemon-Extreme-Yellow-280x210.png",
+    "last_updated": "December 28, 2024",
+    "initial_release": "2024-10-04",
+    "version": "1.4",
+    "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "4951d6166ba7701c",
     "title": "How To Play RPG Maker XP Games On Android",
     "game_url": "https://www.pokeharbor.com/2022/10/how-to-play-rpg-maker-xp-games-on-android/",
@@ -600,6 +744,54 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "d4e7c51228e4ef58",
+    "title": "Pokemon Fire Gold Cheats",
+    "game_url": "https://www.pokeharbor.com/2022/09/pokemon-fire-gold-cheats/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2022/09/Pokemon-Fire-Gold-Cheats-280x210.jpeg",
+    "last_updated": "2024-12-12",
+    "initial_release": "2022-09-09",
+    "version": "N/A",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "65fc0d789eee64f1",
+    "title": "Pokemon Peninsula Gladiator & Myth",
+    "game_url": "https://www.pokeharbor.com/2022/12/pokemon-peninsula-gladiator-myth/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2022/12/44-280x210.png",
+    "last_updated": "2024-12-12",
+    "initial_release": "2022-12-30",
+    "version": "v1.5",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "f870634d515ea4ed",
+    "title": "Pokemon Moon Black 2 Cheats",
+    "game_url": "https://www.pokeharbor.com/2022/10/pokemon-moon-black-2-cheats/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2022/10/wo44ltN-280x210.webp",
+    "last_updated": "2024-12-12",
+    "initial_release": "2022-10-19",
+    "version": "N/A",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "5e75f122ad83f170",
+    "title": "Pokemon Crooked Crystal",
+    "game_url": "https://www.pokeharbor.com/2024/12/pokemon-crooked-crystal/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/12/crookedcrystalcover-280x210.png",
+    "last_updated": "N/A",
+    "initial_release": "December 4, 2024",
+    "version": "Final",
+    "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "cbc39edf53296a00",
     "title": "Pokemon Beta Emerald: Down + Dirty",
     "game_url": "https://www.pokeharbor.com/2024/11/pokemon-beta-emerald-down-dirty/",
@@ -620,6 +812,30 @@
     "initial_release": "2024-10-02",
     "version": "Final",
     "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "160aef3d8c6f4114",
+    "title": "Pokemon Red++ Kaizo",
+    "game_url": "https://www.pokeharbor.com/2024/09/pokemon-red-kaizo/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/09/Pokemon-Red-Kaizo-280x210.jpg",
+    "last_updated": "October 12, 2024",
+    "initial_release": "2024-09-29",
+    "version": "October 12, 2024 Version",
+    "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "db55b35324df93e8",
+    "title": "Pokemon Yellow Legacy+",
+    "game_url": "https://www.pokeharbor.com/2024/09/pokemon-yellow-legacy-2/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/09/Pokemon-Yellow-Legacy-280x210.png",
+    "last_updated": "October 12, 2024",
+    "initial_release": "2024-09-28",
+    "version": "1.0",
+    "status": "Unknown",
     "platform": "GBA",
     "source": "PokeHarbor"
   },
@@ -648,12 +864,72 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "4bc9b86c9285915d",
+    "title": "Pokemon Nightmare Crystal",
+    "game_url": "https://www.pokeharbor.com/2024/09/pokemon-nightmare-crystal/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/09/Pokemon-Nightmare-Crystal-1-280x210.png",
+    "last_updated": "N/A",
+    "initial_release": "August 31, 2024",
+    "version": "1.0",
+    "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "3e837ebbaba0fe16",
+    "title": "Pokemon Crystal Legacy",
+    "game_url": "https://www.pokeharbor.com/2024/01/pokemon-crystal-legacy/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/01/Pokemon-Crystal-Legacy-1-280x210.webp",
+    "last_updated": "August 30, 2024",
+    "initial_release": "2024-01-26",
+    "version": "1.3.1",
+    "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "8c16c55e03a83031",
+    "title": "Pokemon Sour Crystal",
+    "game_url": "https://www.pokeharbor.com/2021/07/pokemon-sour-crystal/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/07/sour-crystal-280x210.png",
+    "last_updated": "August 18, 2024",
+    "initial_release": "2021-07-03",
+    "version": "5.0",
+    "status": "Completed",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "811ad0bb93b0e522",
+    "title": "Pokemon Sword and Shield Ultimate GBA Cheats",
+    "game_url": "https://www.pokeharbor.com/2024/08/pokemon-sword-and-shield-ultimate-gba-cheats/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/08/Pokemon-Sword-and-Shield-Ultimate-GBA-Cheats-280x210.jpg",
+    "last_updated": "2024-08-08",
+    "initial_release": "2024-08-08",
+    "version": "N/A",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "2c350f8faff3208e",
     "title": "25 Best Pokemon ROM Hacks of 2024",
     "game_url": "https://www.pokeharbor.com/2022/11/25-best-pokemon-rom-hacks-of-2023/",
     "image": "https://www.pokeharbor.com/wp-content/uploads/2022/11/25-Best-Pokemon-ROM-Hacks-of-2022-280x210.webp",
     "last_updated": "2024-08-04",
     "initial_release": "2022-11-19",
+    "version": "N/A",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "b36bf8d5aeb82c6e",
+    "title": "Pokemon Mega Hoenn Adventures Cheats",
+    "game_url": "https://www.pokeharbor.com/2024/08/pokemon-mega-hoenn-adventures-cheats/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/08/Pokemon-Mega-Hoenn-Adventures-Cheats-280x210.jpg",
+    "last_updated": "2024-08-04",
+    "initial_release": "2024-08-04",
     "version": "N/A",
     "status": "Unknown",
     "platform": "GBA",
@@ -684,6 +960,18 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "5310a53b51fa2987",
+    "title": "Pokemon Azure Platinum",
+    "game_url": "https://www.pokeharbor.com/2024/04/pokemon-azure-platinum/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/04/Pokemon-Azure-Platinum-Version-280x210.jpg",
+    "last_updated": "N/A",
+    "initial_release": "June 20, 2024",
+    "version": "1.1.1",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "c07f08db802408cc",
     "title": "Pokemon Yellow Legacy",
     "game_url": "https://www.pokeharbor.com/2024/05/pokemon-yellow-legacy/",
@@ -691,6 +979,30 @@
     "last_updated": "May 14, 2024",
     "initial_release": "2024-05-06",
     "version": "1.0.10",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "f01834793a6dbd56",
+    "title": "20 Best Completed Pokemon ROM Hacks of 2024",
+    "game_url": "https://www.pokeharbor.com/2024/03/20-best-completed-pokemon-rom-hacks-of-2024/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2024/03/Top-20-Best-Completed-Pokemon-ROM-Hacks-of-2024-280x210.jpg",
+    "last_updated": "2024-04-03",
+    "initial_release": "2024-03-27",
+    "version": "N/A",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "1ea3e4082e48b98f",
+    "title": "Shin Pokemon Red/Blue/Green",
+    "game_url": "https://www.pokeharbor.com/2021/07/shin-pokemon-red-blue-green/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/07/bgb00028.bmp",
+    "last_updated": "March 27, 2024",
+    "initial_release": "2021-07-02",
+    "version": "v1.23",
     "status": "Unknown",
     "platform": "GBA",
     "source": "PokeHarbor"
@@ -828,6 +1140,42 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "ccdd6a6049f70ab7",
+    "title": "Pokemon Black and White 3: Genesis",
+    "game_url": "https://www.pokeharbor.com/2021/05/pokemon-black-and-white-3-genesis/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/05/pokemon-black-white-3.png",
+    "last_updated": "March 10, 2023",
+    "initial_release": "2021-05-10",
+    "version": "1.2",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "c726b0eefd1ce175",
+    "title": "Pokemon Emerald Cheats",
+    "game_url": "https://www.pokeharbor.com/2022/09/pokemon-emerald-cheats/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2022/09/pokemon-emerald-cheats-280x210.jpg",
+    "last_updated": "2023-02-13",
+    "initial_release": "2022-09-09",
+    "version": "N/A",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "4eba747fbec6ec1d",
+    "title": "Pokemon Coral Version",
+    "game_url": "https://www.pokeharbor.com/2021/05/pokemon-coral-version/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/05/coral-d2.1.png",
+    "last_updated": "December 29, 2022",
+    "initial_release": "2021-05-13",
+    "version": "2022 Demo v1.2",
+    "status": "Progressing",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "bf59ce849bde4b75",
     "title": "Pokemon Mystery Dungeon Gengar",
     "game_url": "https://www.pokeharbor.com/2022/11/pokemon-mystery-dungeon-gengar/",
@@ -837,6 +1185,18 @@
     "version": "v1.5",
     "status": "Unknown",
     "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "ca1f5a95dd74a7b4",
+    "title": "Pokemon White 2 Kaizo",
+    "game_url": "https://www.pokeharbor.com/2022/11/pokemon-white-2-kaizo/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2022/11/pokemon-white-2-kaizo-1-280x210.webp",
+    "last_updated": "November 8, 2022",
+    "initial_release": "2022-11-09",
+    "version": "v1.5",
+    "status": "Unknown",
+    "platform": "RPGXP",
     "source": "PokeHarbor"
   },
   {
@@ -859,6 +1219,18 @@
     "last_updated": "October 12, 2022",
     "initial_release": "2022-05-17",
     "version": "v2.01",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "353af626c3654137",
+    "title": "Pokemon Complete Crystal",
+    "game_url": "https://www.pokeharbor.com/2022/10/pokemon-complete-crystal/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2022/10/Pokemon-Complete-Crystal.png",
+    "last_updated": "October 6, 2022",
+    "initial_release": "2022-10-11",
+    "version": "Beta v0.2",
     "status": "Unknown",
     "platform": "GBA",
     "source": "PokeHarbor"
@@ -888,6 +1260,30 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "96becff047e22e27",
+    "title": "Pokemon Kanto Redux",
+    "game_url": "https://www.pokeharbor.com/2021/08/pokemon-kanto-redux/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/07/KantoRedux-min-280x210.jpg",
+    "last_updated": "January 28, 2022",
+    "initial_release": "2021-07-31",
+    "version": "V1.4",
+    "status": "Unknown",
+    "platform": "RPGXP",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "28c63933295c1f97",
+    "title": "Pokemon Following Platinum",
+    "game_url": "https://www.pokeharbor.com/2022/09/pokemon-following-platinum/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2022/09/Pokemon-Following-Platinum-NDS-ROM.png",
+    "last_updated": "November 20, 2021",
+    "initial_release": "2022-09-28",
+    "version": "v1.1.2 (Completed)",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "8478110dfaaba0b5",
     "title": "Pokemon Mystery Dungeon Explorers of Heaven & Hell",
     "game_url": "https://www.pokeharbor.com/2021/12/pokemon-mystery-dungeon-explorers-of-hell/",
@@ -912,12 +1308,36 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "7835d2985860bef6",
+    "title": "Pokemon Vintage White",
+    "game_url": "https://www.pokeharbor.com/2021/10/pokemon-vintage-white/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/10/Pokemon_Vintage_White_01.png",
+    "last_updated": "July 15, 2021",
+    "initial_release": "2021-10-23",
+    "version": "Beta 03-06-2021",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "f78ede7740947fe1",
     "title": "Pokémon Company Sends Rare Cards To Boy Who Sold Collection To Save Puppy",
     "game_url": "https://www.pokeharbor.com/2021/06/pokemon-company-sends-rare-cards-to-boy-who-sold-collection-to-save-puppy/",
     "image": "https://www.pokeharbor.com/wp-content/uploads/2021/06/boy-sells-pokemon-cards-to-save-dogs-life-1-280x210.jpg",
     "last_updated": "2021-06-07",
     "initial_release": "2021-06-07",
+    "version": "N/A",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "06e02181de8e01fa",
+    "title": "New Pokemon Snap Merchandise Revealed",
+    "game_url": "https://www.pokeharbor.com/2021/04/new-pokemon-snap-merchandise-revealed/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/04/new-pokemon-snap-japan-merchandise-1-280x210.jpg",
+    "last_updated": "2021-05-12",
+    "initial_release": "2021-04-19",
     "version": "N/A",
     "status": "Unknown",
     "platform": "GBA",
@@ -948,6 +1368,18 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "81f02a353cedc74f",
+    "title": "Pokemon Spark Yellow",
+    "game_url": "https://www.pokeharbor.com/2021/08/pokemon-spark-yellow/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/08/Pokemon_Spark_Yellow_01.png",
+    "last_updated": "March 8, 2021",
+    "initial_release": "2021-08-30",
+    "version": "Beta",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "811bfa0aee8d5f42",
     "title": "Pokemon Absolute Soul Silver",
     "game_url": "https://www.pokeharbor.com/2021/11/pokemon-absolute-soul-silver/",
@@ -972,12 +1404,36 @@
     "source": "PokeHarbor"
   },
   {
+    "id": "038d5f350834c324",
+    "title": "Pokemon Horror White",
+    "game_url": "https://www.pokeharbor.com/2021/12/pokemon-horror-white/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/12/Pokemon-black-white-2-280x210.webp",
+    "last_updated": "November 17, 2020",
+    "initial_release": "2021-12-17",
+    "version": "Completed v1",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
     "id": "e41eccb24d1fbd7b",
     "title": "Pokemon N and The Mystery of Latios",
     "game_url": "https://www.pokeharbor.com/2022/01/pokemon-n-and-the-mystery-of-latios/",
     "image": "https://www.pokeharbor.com/wp-content/uploads/2022/01/Pokemon_N_and_The_Mystery_of_Latios_02.png",
     "last_updated": "June 29, 2020",
     "initial_release": "2022-01-03",
+    "version": "Completed",
+    "status": "Unknown",
+    "platform": "RPGXP",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "74a8c675ee11c70b",
+    "title": "Pokemon Apocalypse Boy",
+    "game_url": "https://www.pokeharbor.com/2021/11/pokemon-apocalypse-boy/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/11/maxresdefault-280x210.jpeg",
+    "last_updated": "June 29, 2020",
+    "initial_release": "2021-11-27",
     "version": "Completed",
     "status": "Unknown",
     "platform": "RPGXP",
@@ -20215,6 +20671,126 @@
     "last_updated": "March 14, 2016",
     "initial_release": "2021-06-24",
     "version": "14/3/2016",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "896c35d0a9dcde36",
+    "title": "Pokemon Mega Platinum",
+    "game_url": "https://www.pokeharbor.com/2021/12/pokemon-mega-platinum/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/12/maxresdefault1111-280x210.jpeg",
+    "last_updated": "???",
+    "initial_release": "2021-12-22",
+    "version": "Completed",
+    "status": "Unknown",
+    "platform": "RPGXP",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "81983af7b2545988",
+    "title": "Pokemon Factory Adventure",
+    "game_url": "https://www.pokeharbor.com/2021/05/pokemon-factory-adventure/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/05/pokemon-factory-adventure-256x210.png",
+    "last_updated": "November 12, 2020",
+    "initial_release": "2021-05-26",
+    "version": "v3.2",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "947154e9aee2e941",
+    "title": "Pokemon Yellow Plus",
+    "game_url": "https://www.pokeharbor.com/2021/09/pokemon-yellow-plus/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/09/Pokemon-Yellow-Plus-Surf-1.png",
+    "last_updated": "April 27, 2019",
+    "initial_release": "2021-09-09",
+    "version": "Beta 1.3",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "eef1f9a86bfde3da",
+    "title": "Pokemon Red++",
+    "game_url": "https://www.pokeharbor.com/2021/06/pokemon-red-gb/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/06/pokemon-red-plus-plus-280x210.png",
+    "last_updated": "December 18, 2018",
+    "initial_release": "2021-06-24",
+    "version": "Version 3.0.2",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "e0bfe5978e5a0359",
+    "title": "Pokemon Unova Red",
+    "game_url": "https://www.pokeharbor.com/2021/07/pokemon-unova-red/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/07/pokemon-unova-red.png",
+    "last_updated": "September 20, 2018",
+    "initial_release": "2021-07-13",
+    "version": "Final",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "eb8cdc94b1831002",
+    "title": "Pokemon Crystal Kaizo",
+    "game_url": "https://www.pokeharbor.com/2021/05/pokemon-crystal-kaizo/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/05/pokemon-crystal-kaizo.png",
+    "last_updated": "September 12, 2016",
+    "initial_release": "2021-05-14",
+    "version": "Completed",
+    "status": "Completed",
+    "platform": "RPGXP",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "c97b2ee72f70b50e",
+    "title": "Pokemon Christmas",
+    "game_url": "https://www.pokeharbor.com/2021/05/pokemon-christmas/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/05/pokemon-christmas.png",
+    "last_updated": "Sept 8, 2016",
+    "initial_release": "2021-05-12",
+    "version": "Johto & Elite Four complete",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "1daf29dbc2deb785",
+    "title": "Pokemon XY: Naturia",
+    "game_url": "https://www.pokeharbor.com/2021/09/pokemon-xy-naturia/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/09/Pokemon_XY_Naturia_01-280x210.jpg",
+    "last_updated": "???",
+    "initial_release": "2021-09-08",
+    "version": "Beta 0.4.1",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "aa67abebf5e6b2cb",
+    "title": "Pokemon Bronze",
+    "game_url": "https://www.pokeharbor.com/2021/05/pokemon-bronze/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2021/05/760675_d6ccbcf734c34049a1d2df38d8ab7947_mv2-280x210.jpg",
+    "last_updated": "February 14, 2014",
+    "initial_release": "2021-05-12",
+    "version": "v1.21",
+    "status": "Unknown",
+    "platform": "GBA",
+    "source": "PokeHarbor"
+  },
+  {
+    "id": "bea8478db11fcd27",
+    "title": "Pokemon Platinum Plus",
+    "game_url": "https://www.pokeharbor.com/2022/01/pokemon-platinum-plus/",
+    "image": "https://www.pokeharbor.com/wp-content/uploads/2022/01/SunStone-1.png",
+    "last_updated": "???",
+    "initial_release": "2022-01-11",
+    "version": "Completed v27",
     "status": "Unknown",
     "platform": "GBA",
     "source": "PokeHarbor"
